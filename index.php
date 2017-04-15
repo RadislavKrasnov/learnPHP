@@ -3,7 +3,7 @@ $name = 'Radik';
 $surname = 'Krasnov';
 $age = 22;
 
-//task#1how to set up
+//task#1
 
 echo "My name is $name <br> 
 My surname is $surname <br>";
