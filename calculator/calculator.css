@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    /*background: rgba(212, 219, 193, 0.8) repeat;*/
+    /*background-color: rgba(0, 153, 33, 0.7);*/
+    background:  url("background.jpeg") scroll rgba(0, 153, 33, 0.7);
+}
+
+.form-control, select, input[type="reset"], input[type="submit"] {
+    display: inline;
+    width: 17%;
+    height: 34px;
+    margin-right: 15px;
+    float: left;
+}
+.form-control:nth-child(1) {
+    margin: 0 5px 10px 0;
+}
+
+select, input[type="reset"], input[type="submit"] {
+    width: 50px;
+}
+
+input[type="reset"] {
+    clear: both;
+}
+
+.cleatfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+h1 {
+    text-align: center;
+    color: green;
+    font-size: 24px;
+}
+
+.calculator {
+    width: 100%;
+    margin: 50% 0 0 0;
+    /*min-width: 300px;*/
+}
+
+.calculator > .row {
+    margin-top: -70px;
+    box-shadow: 5px 5px 10px rgba(45, 38, 40, 0.8);
+    -ms-box-shadow: 5px 5px 10px rgba(45, 38, 40, 0.8);
+    -moz-box-shadow: 5px 5px 10px rgba(45, 38, 40, 0.8);
+    -o-box-shadow: 5px 5px 10px rgba(45, 38, 40, 0.8);
+    -webkit-box-shadow: 5px 5px 10px rgba(45, 38, 40, 0.8);
+    background: rgba(212, 219, 193, 1) repeat;
+}
+
+form {
+    padding: 0 0 50px 5%;
+}
+
+.btn {
+    padding: 0 0;
+}
+
+@media screen and (max-width: 768px) {
+    .form-control, select, input[type="reset"], input[type="submit"] {
+        width: 100%;
+        height: 30px;
+        margin: 0 0 10px 0 !important;
+        float: left;
+    }
+
+    .align {
+        padding: 0 0 0 50%!important;
+    }
+
+    form {
+        width: 100%;
+        padding: 0 5% 0 5%;
+    }
+}
+
+
+
