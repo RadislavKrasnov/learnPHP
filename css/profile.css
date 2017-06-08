@@ -1,0 +1,18 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.details li {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

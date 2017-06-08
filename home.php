@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Finance</title>
+    <title>Home</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -18,7 +18,6 @@
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -42,20 +41,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php" title="Project name">Project name</a>
+            <a class="navbar-brand" href="home.php" title="Project name">Project name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="dashboard.php" title="Dashboard">Dashboard</a></li>
+                <li><a href="profile.php" title="Profile">Profile</a></li>
+                <li><a href="#" title="Settings">Settings</a></li>
+                <li><a href="#" title="Help">Help</a></li>
+                <li><a href="signout.php" title="Sign out">Sign out</a></li>
+            </ul>
             <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success"><a href="signin.php" title="sign in">Sign in</a></button>
-                <button type="submit" class="btn btn-success"><a href="signup.php" title="Sign up">Sign up</a></button>
+                <input type="text" class="form-control" placeholder="Search...">
             </form>
-        </div><!--/.navbar-collapse -->
+        </div>
     </div>
 </nav>
 
