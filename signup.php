@@ -1,4 +1,4 @@
-
+<?php include_once 'dataBase.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,21 +42,29 @@
 <div class="container" id="wrap">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form action="r" method="post" accept-charset="utf-8" class="form" role="form">
+            <form action="signup.php" method="post" accept-charset="utf-8" class="form" role="form">
                 <legend>Sign Up</legend>
-                <h4>It's free and always will be.</h4>
+<!--                <h4>It's free and always will be.</h4>-->
+                <h4><?= $message; ?></h4>
                 <div class="row">
                     <div class="col-xs-6 col-md-6">
-                        <input type="text" name="firstname" value="" class="form-control input-lg"
+                        <input type="text" name="firstname" class="form-control input-lg"
                                placeholder="First Name" autofocus/></div>
                     <div class="col-xs-6 col-md-6">
-                        <input type="text" name="lastname" value="" class="form-control input-lg"
+                        <input type="text" name="lastname" class="form-control input-lg"
                                placeholder="Last Name"/></div>
                 </div>
-                <input type="text" name="email" value="" class="form-control input-lg" placeholder="Your Email"/><input
-                    type="password" name="password" value="" class="form-control input-lg"
-                    placeholder="Password"/><input type="password" name="confirm_password" value=""
-                                                   class="form-control input-lg" placeholder="Confirm Password"/>
+                <input type="email" name="email" class="form-control input-lg" placeholder="Your Email"/>
+                <input type="password" name="password" value="" class="form-control input-lg"
+                    placeholder="Password"/>
+                <input type="password" name="confirm_password"
+                    class="form-control input-lg" placeholder="Confirm Password"/>
+                <input type="text" name="place" class="form-control input-lg"
+                       placeholder="Place (city, town)" />
+                <input type="text" name="region" class="form-control input-lg"
+                       placeholder="Region" />
+                <input type="text" name="country" class="form-control input-lg"
+                       placeholder="Country" />
                 <label>Birth Date</label>
                 <div class="row">
                     <div class="col-xs-4 col-md-4">
@@ -199,7 +207,7 @@
                 </label>
                 <br/>
                 <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
-                <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
+                <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit" name="create-account" value="create-account">
                     Create my account
                 </button>
             </form>

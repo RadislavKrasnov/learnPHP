@@ -1,3 +1,4 @@
+<?php include_once 'checker.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,15 +44,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="home.php">Project name</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="dashboard.php">Dashboard</a></li>
                         <li><a href="#">Settings</a></li>
                         <li><a href="#">Help</a></li>
-                        <li><a href="#">Sign out</a></li>
+                        <li><a href="signout.php">Sign out</a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
                         <input type="text" class="form-control" placeholder="Search...">
