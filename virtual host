@@ -1,0 +1,68 @@
+1 sudo nano /etc/apache2/apache2.conf
+
+<Directory /home/user/public_html>
+  AllowOverride All
+  Require all granted
+</Directory>
+
+Дальше хоткеем Alt+/ идем в конец файла и дописываем здесь
+
+ServerName localhost
+
+Сохраняем хоткеем Ctrl+o, подтверждаем энтером и выходим из nano (Ctrl+x).
+
+2 Поскольку в подавляющем большинстве (если не у всех) у наших сайтов дефолтной страницей будет index.php, а не index.html, то открываем следующий файл.
+
+sudo nano /etc/apache2/mods-available/dir.conf
+
+И здесь index.php помещаем в начало строки DirectoryIndex, перед index.html. Должно получиться так.
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+</IfModule>
+Сохраняем и закрываем.
+
+Виртуальные хосты
+папка
+/home/user/public_html/testsite
+
+Откроем /etc/hosts
+sudo nano /etc/hosts
+
+Здесь в первую строку добавим имя нашего сайта.
+127.0.0.1 localhost testsite
+Сохраняем и закрываем (напомню, Ctrl+o и Ctrl+x соответственно).
+
+Теперь выполняем в терминале
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/testsite.conf
+Таким образом мы создали кофигурационный файл сайта testsite, скопировав конфигурационный файл дефолтного сайта.
+
+Теперь откроем этот файл и настроим его под наш сайт.
+sudo nano /etc/apache2/sites-available/testsite.conf
+
+Здесь раскомментируем (т.е. уберем #) строчку
+#ServerName www.example.com
+И пропишем имя нашего сайта. Должно получиться:
+ServerName testsite
+Далее исправим DocumentRoot, прописав вместо 
+/var/www/html /home/user/public_html/testsite 
+(не забываем вместо user поставить реальное имя пользователя).
+Сохраняем и закрываем. 
+
+Теперь включаем наш сайт.
+sudo a2ensite testsite
+В терминале нам любезно подсказывают, что активировать новую конфигурацию мы можем, перезагрузив настроки Апача.
+sudo service apache2 reload
+В адресной строке браузера пишем
+
+    http://testsite
+          
+И видим нашу тестовую страничку. Если не видим - тщательно проверяем правильность своих предыдущих действий.
+
+Ну и в дальнейшем будем работать уже с этим тестовым сайтом, а не с дефолтным.
+
+Владельцы и права
+
+sudo adduser user www-data
+chown user:www-data -R public_html
+chmod -R 775 public_html
