@@ -1,0 +1,23 @@
+sudo apt-get install curl git mc
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+composer global require "laravel/installer"
+composer create-project --prefer-dist laravel/laravel myTestProject
+#.bashrc
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+source .bashrc
+
+laravel new project
+
+php artisan serve
+
+Ctrl+C
+
+composer update OR composer self-update
+
+cp .env.example .env
+
+php artisan key:generate
+
+
+
