@@ -1,0 +1,37 @@
+.back {
+    margin: 10px 0 0 0;
+}
+
+.info {
+    display: block;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.clearfix {
+    display: table;
+    content: '';
+    clear: both;
+}
+
+.common-info {
+    padding: 5px;
+    display: block;
+    float: left;
+    width: 56%;
+    text-align: left;
+}
+
+.photo {
+    display: block;
+    width: 150px;
+    float: left;
+}
+
+.technologies, .projects {
+    margin: 15px 0 0 0;
+}
+
+.addTech {
+    margin: 10px;
+}
