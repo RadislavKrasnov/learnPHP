@@ -100,22 +100,18 @@ if (empty($SESSION['user_access']) || $SESSION['user_access'] === false) {
         $key = $COOKIE['key'];//like a password
 
 $isExistCookie = <<<SQL
-SELECT `email`, `cookie`
+SELECT `email`, `cookie`, `status`, `id`
 FROM `credentials` 
 WHERE `email` = $email AND `cookie` = $key;
 SQL;
         $cookieResult = mysqli_fetch_assoc(mysqli_query($link, $isExistCookie));
-        $a = mysqli_num_rows($cookieResult);
-        if ($a > 0 ) {
-            echo "a > 0";
-        } else {
-            echo "a = 0";
-        }
 
         if (!empty($isExistCookie)) {
             session_start();
             $_SESSION['user_access'] = true;
             $_SESSION['email'] = $credential['email'];
+            $_SESSION['status'] = $credential['status'];
+            $_SESSION['id'] = $credential['id'];
 //rewrite cookie
             $key = generateSalt();
             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
@@ -149,7 +145,9 @@ if ($_POST['signin'] != "") {
 //WHERE `email` = '$email';
 //SQL;
 $query = <<<SQL
-SELECT credentials.`email`, credentials.`salt`, credentials.`password`, users.`first_name`, users.`last_name`
+SELECT credentials.`id`, credentials.`status`
+     , credentials.`email`, credentials.`salt`
+     , credentials.`password`, users.`first_name`, users.`last_name`
 FROM `credentials`
 JOIN common ON credentials.id = common.credentials_id
 JOIN users ON common.users_id = users.id
@@ -167,15 +165,18 @@ SQL;
             if ($credential['password'] === $saltedPassword) {
                 session_start();
                 $_SESSION['user_access'] = true;
-            $_SESSION['first_name'] = $credential['first_name'];
-            $_SESSION['last_name'] = $credential['last_name'];
-//            $_SESSION['place'] = $credential['place'];
-//            $_SESSION['country'] = $credential['country'];
-//            $_SESSION['month_birth'] = $credential['month_birth'];
-//            $_SESSION['day_birth'] = $credential['day_birth'];
-//            $_SESSION['year_birth'] = $credential['year_birth'];
-            $_SESSION['email'] = $credential['email'];
-//            $_SESSION['gender'] = $credential['gender'];
+                $_SESSION['first_name'] = $credential['first_name'];
+                $_SESSION['last_name'] = $credential['last_name'];
+//              $_SESSION['place'] = $credential['place'];
+//              $_SESSION['country'] = $credential['country'];
+//              $_SESSION['month_birth'] = $credential['month_birth'];
+//              $_SESSION['day_birth'] = $credential['day_birth'];
+//              $_SESSION['year_birth'] = $credential['year_birth'];
+                $_SESSION['email'] = $credential['email'];
+//              $_SESSION['gender'] = $credential['gender'];
+                $_SESSION['status'] = $credential['status'];
+                $_SESSION['id'] = $credential['id'];
+
                 if (!empty($remember) && $remember === 'remember-me') {
                     $key = generateSalt();
                     setcookie('email', $credential['email'], time() + 60 * 60 * 24 * 30);

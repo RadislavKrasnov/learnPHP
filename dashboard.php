@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="css/footer.css">
 
     <title>Dashboard</title>
 
@@ -239,6 +240,10 @@
         </div>
       </div>
     </div>
+    <footer>
+        <p>&copy; 2016 Company, Inc.</p>
+        <p><a href="admin.php">Admin</a></p>
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="css/footer.css">
+
 
     <title>Home</title>
 
@@ -92,6 +94,7 @@
 
     <footer>
         <p>&copy; 2016 Company, Inc.</p>
+        <p><a href="admin.php">Admin</a></p>
     </footer>
 </div> <!-- /container -->
 
